@@ -133,3 +133,18 @@ def delete_person(id):
             data.remove(person)
             return {"message": "Person with ID deleted"}, 200
     return {"message": "Person not found"}, 404
+
+
+@app.route("/person", methods=['POST'])
+def create_person():
+    new_person = request.get_json()
+
+    if not new_person:
+        return {"message": "Invalid input parameter"}, 422
+    
+    try:
+        data.append(new_person)
+    except NameError:
+        return {"message": "data not defined"}, 500
+    
+    return {"message": "Person created successfully"}, 200
