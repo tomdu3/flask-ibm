@@ -148,3 +148,8 @@ def create_person():
         return {"message": "data not defined"}, 500
     
     return {"message": "Person created successfully"}, 200
+
+
+@app.errorhandler(404)
+def api_not_found(error):
+    return {"message": "API not found"},  404
