@@ -127,9 +127,9 @@ def find_by_uuid(var_name):
 
 
 @app.route("/person/<uuid:id>", methods=['DELETE'])
-def delete_person(var_name):
+def delete_person(id):
     for person in data:
-        if person["id"] == str(var_name):
+        if person["id"] == str(id):
             data.remove(person)
             return {"message": "Person with ID deleted"}, 200
     return {"message": "Person not found"}, 404
