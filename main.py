@@ -153,3 +153,7 @@ def create_person():
 @app.errorhandler(404)
 def api_not_found(error):
     return {"message": "API not found"},  404
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
